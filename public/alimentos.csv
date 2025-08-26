@@ -1,0 +1,171 @@
+﻿grupo;nombre;forma;momento;ms;em;pb;fdn;calcio;fosforo;precio
+grano;avena;entero;****;91,1;2,48;11,5;31,0;0,20;3;
+grano;cebada;entero;****;88,0;3,02;13,5;21,0;0,20;3;
+grano;centeno;entero;****;88,0;3,02;13,8;0,0;0,20;3;
+grano;maiz;entero;****;88,0;3,25;9,8;12,0;0,20;2;
+grano;sorgo;entero;****;86,1;2,80;8,3;20,0;0,40;3,4;
+grano;trigo;entero;****;87,6;3,17;15,2;30,0;0,40;4,2;
+fardo;avena;entero;grano lechoso;87,6;2,11;12,3;59,0;2,00;2;
+fardo;moha;entero;encañazon -prefloracion;88,9;2,11;9,9;72,0;3,00;1;
+pastura;base alfalfa;natural;enero - feb -marzo;24,2;2,40;16,8;46,9;12,00;6;
+pastura;base alfalfa;natural;abril - mayo - junio;21,0;2,56;22,8;40,0;9,00;3;
+verdeo;avena;natural;junio - julio -agosto;19,0;2,84;23,2;0,0;0,00;0;
+subprod;algodon;cascara;****;87,4;0,82;6,9;80,0;3,00;3,7;
+subprod;soja;expeller;****;98,1;2,88;45,2;14,0;3,00;7;
+subprod;soja;pellets;****;88,1;3,27;45,4;23,0;3,00;7;
+silaje;avena;"picado
+grueso";****;18,8;2,39;20,1;63,0;3,00;2;
+silaje;maiz;picado fino;grano pastoso;29,3;2,13;6,3;54,0;4,00;2;
+silaje;maiz;"picado
+grueso";grano pastoso;28,0;2,20;7,8;68,0;2,00;1;
+fardo;base alfalfa;entero;"principios
+floracion";88,5;2,15;18,8;56,0;14,00;2;
+rollo;base alfalfa;entero;20% floracion;88,9;1,85;16,4;63,6;14,00;2;
+fardo;moha;entero;25% panojamiento;88,9;2,03;9,6;74,0;3,00;1;
+fardo;moha;entero;50% panojamiento;88,5;1,68;6,7;85,0;3,00;0,1;
+fardo;soja;entero;prefloracion;87,9;2,23;10,7;65,0;14,00;2;
+fardo;soja;entero;forma chaucha;87,9;2,28;9,4;53,0;14,00;2;
+fardo;soja;entero;van. no chaucha;82,3;1,89;13,3;59,0;14,00;2;
+verdeo;soja;natural;45 cm. altura;0,0;2,52;16,6;0,0;0,00;0;
+verdeo;soja;natural;60 cm altura;0,0;2,37;18,0;0,0;0,00;0;
+fardo;soja;entero;rastrojo;87,6;1,49;5,3;70,0;14,00;2;
+fardo;"sorgo
+forrajero";entero;1 m altura;87,5;1,81;8,1;71,0;4,00;4;
+fardo;trebol rojo;entero;veget. tardio;87,3;2,18;17,0;49,0;13,00;2;
+fardo;trebol rojo;entero;principio floracion;87,8;2,26;18,3;52,0;13,00;2;
+fardo;trebol rojo;entero;50% floracion;88,9;2,24;12,6;55,0;13,00;2;
+fardo;base alfalfa;entero;"principios
+floracion";85,8;2,08;21,3;58,0;14,00;2;
+rollo;avena;entero;grano pastoso;88,4;1,94;9,7;72,3;2,00;2;
+rollo;moha;entero;encañazon -prefloracion;88,8;1,88;9,6;70,9;3,00;1;
+rollo;moha;entero;"principios
+panojamiento";90,4;2,05;9,7;69,2;3,00;1;
+rollo;sorgo;entero;1 m. altura;88,4;1,49;6,6;78,0;4,00;4;
+rollo;soja;entero;prefloracion;90,8;2,19;12,2;58,0;12,00;3;
+rollo;soja;entero;forma chaucha;90,7;2,28;7,5;52,0;12,00;3;
+rollo;trebol rojo;entero;"principios
+floracion";89,3;2,35;16,1;50,0;22,00;3;
+rollo;base alfalfa;entero;"principios
+floracion";91,0;1,91;14,0;60,3;14,00;2;
+rollo;base alfalfa;entero;20% floracion;90,6;1,60;9,8;66,0;14,00;2;
+silaje;malta;"picado
+grueso";****;27,1;1,47;30,6;58,0;0,00;0;
+silaje;maiz guinea;"picado
+grueso";****;25,4;1,86;6,1;80,0;0,00;0;
+silaje;sorgo;picado fino;****;23,3;2,30;6,4;70,0;3,00;1;
+silaje;sorgo;"picado
+grueso";****;22,8;1,71;9,1;70,0;3,00;2;
+subprod;algodon;cascarilla;****;90,7;0,76;6,8;85,0;1,50;0,9;
+fardo;alfalfa;entero;"principios
+floracion";88,9;2,28;17,0;57,0;14,00;2;
+subprod;algodon;expeller;****;91,0;2,50;45,2;43,0;4,00;12;
+subprod;algodon;semilla;****;92,0;3,30;27,2;40,0;4,50;8,2;
+subprod;algodon;torta;****;87,4;2,02;43,9;30,0;4,00;12;
+subprod;arroz;afrecho;****;89,5;2,44;17,7;31,0;2,20;20;
+subprod;arroz;arrocin;****;88,8;2,97;9,2;2,0;0,20;1,7;
+subprod;bagazo hidr;****;****;91,0;1,82;1,2;54,0;9,00;2;
+"subpro
+d";batata;entera;****;32,0;3,10;2,6;0,0;2,50;2,3;
+subprod;calabacita;****;****;15,7;3,17;16,8;38,0;0,00;0;
+subprod;c de pollo;****;****;78,8;2,61;16,5;25,0;31,50;16;
+subprod;girasol;cascara;****;91,6;0,71;3,8;81,0;5,50;3,1;
+subprod;girasol;expeller;****;90,0;2,16;36,0;30,0;4,00;10;
+subprod;girasol;pellets;****;90,5;2,52;32,0;40,0;4,00;9;
+subprod;hez de malta;****;****;16,0;2,39;29,0;52,0;3,00;6;
+subprod;hez de malta;****;****;32,5;2,39;30,5;52,0;3,00;6;
+subprod;lino;expeller;****;90,0;2,80;27,0;24,0;4,00;9;
+subprod;lino;harina;****;95,6;2,88;34,0;25,0;4,00;8;
+subprod;maiz;afrechillo;****;90,0;3,02;17,7;51,0;0,50;9,4;
+subprod;maiz;harina;****;91,0;2,99;7,8;5,0;1,60;5;
+subprod;papa;"tuberc.
+fresc.";madurez;23,0;2,92;9,5;0,0;0,00;2;
+subprod;trigo;afr.(pellet);****;86,6;2,54;17,6;51,0;1,00;13;
+subprod;zanahoria;raices fresc.;madurez;12,0;3,02;9,9;9,0;0,00;0;
+subprod;zapallo;partido;madurez;41,0;2,89;19,2;13,0;0,00;0;
+pastura;base alfalfa;natural;julio - agosto - set.;21,3;2,56;12,0;39,9;12,00;6;
+pastura;base alfalfa;natural;oct. - nov. - dic.;24,2;2,36;14,5;45,9;12,00;6;
+verdeo;moha;natural;diciembre;22,0;2,51;11,2;0,0;0,00;0;
+pastura;achicoria;natural;enero - feb. -marzo;21,2;2,20;14,4;44,4;12,00;5;
+subprod;urea;granulado;****;100,0;0,00;275,0;0,0;0,00;0;
+subprod;balanceado;pellets;****;88,0;2,80;18,0;18,0;10,00;5;
+fardo;agropiro;entero;;88,0;2,40;12,2;40,0;10,00;5;
+pastura;festuca;veg. 1;;20,2;2,65;20,5;64,3;0,00;5;
+grano;leche;;;12,0;4,29;26,6;0,0;8,50;7,6;
+pastura;trebol rojo;;otoño - invierno;18,0;2,21;19,0;25,0;10,00;3;
+pastura;trebol rojo;;primavera - verano;19,0;2,25;21,0;38,0;9,00;4;
+pastura;trebol rojo;;verano;24,0;2,05;15,0;44,0;11,00;3;
+pastura;agropiro;;;35,0;1,80;9,0;55,0;4,50;1,5;
+pastura;festuca;veg. 2;;20,5;2,25;14,0;48,0;4,00;3,5;
+verdeo;avena;;i - 1 corte;15,0;2,60;22,0;48,0;3,00;4;
+verdeo;avena;;i - ult. corte;22,0;2,16;18,0;52,0;3,00;4;
+verdeo;trigo;;invierno;21,0;2,35;23,0;52,0;4,00;4;
+verdeo;raigras;;i - 1 corte;18,0;2,25;18,0;45,0;5,50;3,5;
+verdeo;raigras;;i - ult. corte;26,0;2,15;15,0;52,0;5,00;3;
+grano;balanceado;pellets;ternero 1;89,0;2,80;20,0;25,0;7,00;5;
+grano;balanceado;pellets;ternero 2;89,0;2,70;16,0;28,0;7,00;5;
+grano;balanceado;pellets;toros;89,0;2,80;14,0;28,0;7,00;6;
+grano;balanceado;pellets;engorde;89,0;2,80;13,0;28,0;7,00;6;
+verdeo;maiz;;verano;23,0;2,30;7,0;54,0;2,50;3;
+verdeo;sorgo;;ver - 1 corte;18,0;2,15;14,0;56,0;3,50;4,5;
+verdeo;sorgo;verano;ult. corte;23,0;2,00;9,5;62,0;4,00;2,5;
+fardo;alfalfa;;;88,9;2,12;13,9;57,0;14,00;2;
+grano;maiz;;curso;88,6;3,31;9,8;10,0;0,20;2;
+subprod;soja;sojilla;;90,8;2,56;25,3;50,3;7,00;6;
+subprod;suero;liquido;;6,0;3,00;2,0;0,0;2,50;2,5;
+pastura;pastizal;natural;;20,0;2,40;12,0;45,0;10,00;5;
+pastura;avena;octubre;;21,0;2,70;18,0;41,0;1,00;0,5;
+silaje;maiz;centro;santa fe;35,1;2,19;10,0;57,0;3,00;1;
+silaje;sorgo;granifero;santa fe;36,7;2,10;8,0;60,5;3,00;1;
+silaje;sorgo;forrajero;santa fe;28,8;1,90;8,0;65,8;3,00;1;
+silaje;alfalfa;centro;santa fe;35,6;1,90;16,0;58,2;10,00;2,5;
+silaje;maiz;"grano
+humedo";santa fe;75,8;3,10;8,4;14,3;0,30;1;
+silaje;sorgo;"grano
+humedo";santa fe;62,5;2,80;10,9;25,5;0,30;1,5;
+rollo;alfalfa;henolaje;;45,2;2,10;17,8;54,1;10,00;3;
+rollo;maiz;henolaje;;24,0;1,90;8,3;65,8;0,00;0;
+rollo;avena;henolaje;granada;45,2;2,10;13,9;63,9;2,00;2;
+rollo;moha;henolaje;santa fe;40,1;1,90;9,3;71,8;3,00;1;
+rollo;mijoperla;henolaje;santa fe;42,5;1,90;9,8;71,6;0,00;0;
+rollo;sorgo;henolaje;forrajero;39,5;2,00;12,5;61,5;4,00;4;
+rollo;trebol rojo;henolaje;santa fe;38,7;1,80;13,0;55,7;15,00;2;
+rollo;soja;henolaje;santa fe;31,4;2,10;18,8;52,0;12,00;3;
+pastura;colonial;;;25,0;2,34;8,0;50,0;5,00;5;
+silaje;alfalfa;picado;embolsado;68,9;2,14;20,4;48,0;10,00;2,5;
+rollo;alfalfa;humedo;embolsado;65,5;2,18;22,7;49,3;10,00;3;
+silaje;alfalfa;silopaq;;66,0;2,19;23,0;0,0;12,00;2,5;
+fardo;alfalfa;;;86,6;1,84;21,5;58,7;0,00;0;
+silaje;alfalfa;;;55,6;2,29;21,3;39,2;12,00;2,5;
+silaje;alfalfa;;;51,5;2,26;23,3;37,4;12,00;2,5;
+silaje;alfalfa;;;47,9;2,31;20,8;35,3;12,00;2,5;
+silaje;maiz;espiga;;40,9;2,73;8,3;30,9;3,00;1;
+silaje;maiz;;;29,5;2,39;8,6;49,2;3,00;1;
+silaje;maiz;;;23,6;2,15;8,4;63,7;3,00;1;
+silaje;maiz;;;20,9;2,01;8,1;64,4;3,00;1;
+silaje;maiz;;;29,8;2,17;9,0;55,1;3,00;1;
+silaje;maiz;;;61,4;2,49;12,7;69,3;3,00;1;
+silaje;maiz;;;18,9;1,63;6,2;43,9;3,00;1;
+silaje;maiz;embolsado;;34,5;2,20;8,5;52,0;3,00;1;
+silaje;maiz;embolsado;;55,0;2,50;13,0;63,6;3,00;1;
+silaje;maiz;embolsado;;19,5;1,87;80,0;43,1;3,00;1;
+silaje;sorgo;granifero;;34,1;2,19;8,9;53,5;3,00;1;
+silaje;sorgo;forrajero;;27,9;2,01;9,1;63,1;3,00;1;
+silaje;maiz;"grano
+humedo";;74,6;3,03;8,8;15,9;0,20;3;
+silaje;sorgo;"grano
+humedo";;78,1;2,94;8,4;17,7;0,30;1,5;
+silaje;maiz;balcarce;;30,0;2,30;8,0;45,0;2,30;2,2;
+pastura;festuca;no toxica;;28,0;2,40;12,2;40,0;10,00;5;
+pastura;festuca;toxica;;32,6;1,92;12,9;40,0;10,00;5;
+pastura;pastizal;natural;balcarce;41,1;1,39;11,6;51,4;8,00;4;
+subprod;grasa;solido;;96,0;6,50;0,0;0,0;0,00;0;
+subprod;maiz;glutenfeed;;93,0;2,90;23,0;47,0;3,60;8,2;
+subprod;maiz;glutenmeal;;91,0;3,38;46,7;37,0;1,60;8,2;
+subprod;plumas;harina;;93,0;3,40;88,6;4,0;2,00;7,5;
+mineral;fosfato;dicalcico;;99,0;0,00;0,0;0,0;220,00;180;
+mineral;carbonato;calcio;;99,0;0,00;0,0;0,0;376,20;0;
+mineral;conchilla;;;99,0;0,00;0,0;0,0;340,00;0;
+mineral;fosfato;diamonico;;99,0;0,00;115,0;0,0;5,20;210;
+subprod;galletitas;descarte;;90,0;3,32;10,0;22,0;1,50;3;
+subprod;sustituto lácteo cabrito;polvo;;95,0;4,50;25,0;;8;6,5;
+subprod;sustituto lácteo teernero;polvo;;95,0;3,90;22,0;;9,00;8,00;
