@@ -1,4 +1,11 @@
 <template>
-    <h1>Carne</h1>
+    <v-container fluid>
+        <CarneForm />
+    </v-container>
 </template>
-<script setup></script>
+<script>
+import CarneForm from '../components/CarneForm.vue'
+export default {
+  components: { CarneForm }
+}
+</script>

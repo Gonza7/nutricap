@@ -1,4 +1,11 @@
 <template>
-    <h1>Tambo</h1>
+    <v-container fluid>
+        <TamboForm />
+    </v-container>
 </template>
-<script setup></script>
+<script>
+import TamboForm from '../components/TamboForm.vue'
+export default {
+  components: { TamboForm }
+}
+</script>
