@@ -3,6 +3,12 @@ import App from './App.vue'
 import { registerPlugins } from '@/plugins'
 import { initDB, getAllAlimentos } from './db/indexedDB'
 import { loadCSVToDB } from './db/loadCSV'
+import { registerSW } from 'virtual:pwa-register'
+
+const updateSW = registerSW({
+  onNeedRefresh () {},
+  onOfflineReady () {}
+})
 
 const app = createApp(App)
 registerPlugins(app)
