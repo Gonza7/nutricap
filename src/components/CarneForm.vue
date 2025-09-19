@@ -91,132 +91,121 @@
       </v-expansion-panel>
 
       <!-- 🔹 Resultados -->
-      <v-expansion-panel>
-        <v-expansion-panel-title>Resultados</v-expansion-panel-title>
-        <v-expansion-panel-text>
-          <v-row>
-            <v-col cols="12" sm="4">
-              <v-text-field label="Total PB (gr)" v-model="resultados.totalPB" disabled />
-            </v-col>
-            <v-col cols="12" sm="4">
-              <v-text-field label="EM total" v-model="resultados.emTotal" disabled />
-            </v-col>
-            <v-col cols="12" sm="4">
-              <v-text-field label="EM total ajustado" v-model="resultados.emAjustado" disabled />
-            </v-col>
-          </v-row>
+<v-expansion-panel>
+  <v-expansion-panel-title>Resultados</v-expansion-panel-title>
+  <v-expansion-panel-text>
 
-          <v-row>
-            <v-col cols="12" sm="4">
-              <v-text-field label="EM x mov" v-model="resultados.emMov" disabled />
-            </v-col>
-            <v-col cols="12" sm="4">
-              <v-text-field label="EM x rec" v-model="resultados.emRec" disabled />
-            </v-col>
-            <v-col cols="12" sm="4">
-              <v-text-field label="Ca (g/d)" v-model="resultados.ca" disabled />
-            </v-col>
-          </v-row>
+    <!-- Subcategoría: Requerimientos Nutricionales -->
+    <h3 class="text-subtitle-1 mb-2">Requerimientos</h3>
+    <v-row>
+      <v-col cols="12" sm="3">
+        <v-text-field label="Total PB (gr)" v-model="resultados.totalPB" disabled />
+      </v-col>
+      <v-col cols="12" sm="3">
+        <v-text-field label="EM total" v-model="resultados.emTotal" disabled />
+      </v-col>
+      <v-col cols="12" sm="3">
+        <v-text-field label="EM total ajustado" v-model="resultados.emAjustado" disabled />
+      </v-col>
+      <v-col cols="12" sm="3">
+        <v-text-field label="EM x mov" v-model="resultados.emMov" disabled />
+      </v-col>
+      <v-col cols="12" sm="3">
+        <v-text-field label="EM x rec" v-model="resultados.emRec" disabled />
+      </v-col>
+      <v-col cols="12" sm="3">
+        <v-text-field label="Ca (g/d)" v-model="resultados.ca" disabled />
+      </v-col>
+      <v-col cols="12" sm="3">
+        <v-text-field label="P (g/d)" v-model="resultados.p" disabled />
+      </v-col>
+      <v-col cols="12" sm="3">
+        <v-text-field label="% Lípidos" v-model="resultados.lipidos" disabled />
+      </v-col>
+      <v-col cols="12" sm="3">
+        <v-text-field label="FDN total %" v-model="resultados.fdnTotal" disabled />
+      </v-col>
+      <v-col cols="12" sm="3">
+        <v-text-field label="FDN efectiva %" v-model="resultados.fdnEfectiva" disabled />
+      </v-col>
+      <v-col cols="12" sm="3">
+        <v-text-field label="UTG PB" v-model="resultados.utgPB" disabled />
+      </v-col>
+      <v-col cols="12" sm="3">
+        <v-text-field label="UTG EM" v-model="resultados.utgEM" disabled />
+      </v-col>
+    </v-row>
 
-          <v-row>
-            <v-col cols="12" sm="4">
-              <v-text-field label="P (g/d)" v-model="resultados.p" disabled />
-            </v-col>
-            <v-col cols="12" sm="4">
-              <v-text-field label="% Lípidos" v-model="resultados.lipidos" disabled />
-            </v-col>
-            <v-col cols="12" sm="4">
-              <v-text-field label="FDN total %" v-model="resultados.fdnTotal" disabled />
-            </v-col>
-          </v-row>
+    <!-- Subcategoría: Totales de Dieta -->
+    <h3 class="text-subtitle-1 mt-4 mb-2">Aportes de Dieta</h3>
+    <v-row>
+      <v-col cols="12" sm="4">
+        <v-text-field label="Suma MTC (kg)" v-model="resultados.sumaMtc" disabled />
+      </v-col>
+      <v-col cols="12" sm="4">
+        <v-text-field label="Suma MS (kg)" v-model="resultados.sumaMs" disabled />
+      </v-col>
+      <v-col cols="12" sm="4">
+        <v-text-field label="Suma PB" v-model="resultados.sumaPb" disabled />
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col cols="12" sm="4">
+        <v-text-field label="Suma EM" v-model="resultados.sumaEm" disabled />
+      </v-col>
+      <v-col cols="12" sm="4">
+        <v-text-field label="Suma Ca" v-model="resultados.sumaCa" disabled />
+      </v-col>
+      <v-col cols="12" sm="4">
+        <v-text-field label="Suma P" v-model="resultados.sumaP" disabled />
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col cols="12" sm="4">
+        <v-text-field label="Suma FDN" v-model="resultados.sumaFdn" disabled />
+      </v-col>
+      <v-col cols="12" sm="4">
+        <v-text-field label="Suma EE" v-model="resultados.sumaEe" disabled />
+      </v-col>
+      <v-col cols="12" sm="4">
+        <v-text-field label="Suma Costo" v-model="resultados.sumaCosto" disabled />
+      </v-col>
+    </v-row>
 
-          <v-row>
-            <v-col cols="12" sm="6">
-              <v-text-field label="FDN efectiva %" v-model="resultados.fdnEfectiva" disabled />
-            </v-col>
-            <v-col cols="12" sm="6">
-              <v-text-field label="UTG PB" v-model="resultados.utgPB" disabled />
-            </v-col>
-          </v-row>
+    <!-- Subcategoría: Balances -->
+    <h3 class="text-subtitle-1 mt-4 mb-2">Balances</h3>
+    <v-row>
+      <v-col cols="12" sm="3">
+        <v-text-field label="Balance PB" v-model="resultados.balancePb" disabled />
+      </v-col>
+      <v-col cols="12" sm="3">
+        <v-text-field label="Balance EM" v-model="resultados.balanceEm" disabled />
+      </v-col>
+      <v-col cols="12" sm="3">
+        <v-text-field label="Balance Ca" v-model="resultados.balanceCa" disabled />
+      </v-col>
+      <v-col cols="12" sm="3">
+        <v-text-field label="Balance P" v-model="resultados.balanceP" disabled />
+      </v-col>
+    </v-row>
 
-          <v-row>
-            <v-col cols="12" sm="6">
-              <v-text-field label="UTG EM" v-model="resultados.utgEM" disabled />
-            </v-col>
-          </v-row>
+    <!-- Subcategoría: Otros Indicadores -->
+    <h3 class="text-subtitle-1 mt-4 mb-2">Otros Indicadores</h3>
+    <v-row>
+      <v-col cols="12" sm="4">
+        <v-text-field label="CTMS / PV" v-model="resultados.ctmsPv" disabled />
+      </v-col>
+      <v-col cols="12" sm="4">
+        <v-text-field label="FDN efectiva (FDNe)" v-model="resultados.fdne" disabled />
+      </v-col>
+      <v-col cols="12" sm="4">
+        <v-text-field label="Ca / P" v-model="resultados.caP" disabled />
+      </v-col>
+    </v-row>
 
-          <v-row>
-            <v-col cols="12" sm="4">
-              <v-text-field label="CTMS / PV" v-model="resultados.ctmsPv" disabled />
-            </v-col>
-            <v-col cols="12" sm="4">
-              <v-text-field label="Suma MTC (kg)" v-model="resultados.sumaMtc" disabled />
-            </v-col>
-            <v-col cols="12" sm="4">
-              <v-text-field label="Suma MS (kg)" v-model="resultados.sumaMs" disabled />
-            </v-col>
-          </v-row>
+  </v-expansion-panel-text>
+</v-expansion-panel>
 
-          <v-row>
-            <v-col cols="12" sm="4">
-              <v-text-field label="Suma PB" v-model="resultados.sumaPb" disabled />
-            </v-col>
-            <v-col cols="12" sm="4">
-              <v-text-field label="Suma EM" v-model="resultados.sumaEm" disabled />
-            </v-col>
-            <v-col cols="12" sm="4">
-              <v-text-field label="Suma Ca" v-model="resultados.sumaCa" disabled />
-            </v-col>
-          </v-row>
-
-          <v-row>
-            <v-col cols="12" sm="4">
-              <v-text-field label="Suma P" v-model="resultados.sumaP" disabled />
-            </v-col>
-            <v-col cols="12" sm="4">
-              <v-text-field label="Suma FDN" v-model="resultados.sumaFdn" disabled />
-            </v-col>
-            <v-col cols="12" sm="4">
-              <v-text-field label="Suma EE" v-model="resultados.sumaEe" disabled />
-            </v-col>
-          </v-row>
-
-          <v-row>
-            <v-col cols="12" sm="4">
-              <v-text-field label="Suma Costo" v-model="resultados.sumaCosto" disabled />
-            </v-col>
-          </v-row>
-
-          <!-- 🔹 BALANCES -->
-          <v-row>
-            <v-col cols="12" sm="4">
-              <v-text-field label="Balance PB" v-model="resultados.balancePb" disabled />
-            </v-col>
-            <v-col cols="12" sm="4">
-              <v-text-field label="Balance EM" v-model="resultados.balanceEm" disabled />
-            </v-col>
-            <v-col cols="12" sm="4">
-              <v-text-field label="Balance Ca" v-model="resultados.balanceCa" disabled />
-            </v-col>
-          </v-row>
-
-          <v-row>
-            <v-col cols="12" sm="4">
-              <v-text-field label="Balance P" v-model="resultados.balanceP" disabled />
-            </v-col>
-          </v-row>
-
-          <!-- 🔹 OTROS -->
-          <v-row>
-            <v-col cols="12" sm="4">
-              <v-text-field label="FDN efectiva (FDNe)" v-model="resultados.fdne" disabled />
-            </v-col>
-            <v-col cols="12" sm="4">
-              <v-text-field label="Ca / P" v-model="resultados.caP" disabled />
-            </v-col>
-          </v-row>
-        </v-expansion-panel-text>
-      </v-expansion-panel>
     </v-expansion-panels>
 
     <!-- 🔹 Botón Calcular -->
@@ -251,9 +240,9 @@ export default {
         emRec: null,
         ca: null,
         p: null,
-        lipidos: null,
-        fdnTotal: null,
-        fdnEfectiva: null,
+        lipidos: 6,
+        fdnTotal: 40,
+        fdnEfectiva: 25,
         utgPB: null,
         utgEM: null,
         ctmsPv: null,
@@ -305,11 +294,11 @@ export default {
           const mtc = parseFloat(item.mtc)
           console.log(mtc)
           console.log (ali.ms,ali.pb,ali.em,ali.calcio,ali.fosforo,ali.fdn,ali.precio)
-          const ms = (mtc * parseFloat(ali.ms)/100)
+          const ms = mtc * parseFloat(ali.ms) *1000
           console.log (ms)
           this.resultados.sumaMtc = (this.resultados.sumaMtc || 0) + mtc
           this.resultados.sumaMs = (this.resultados.sumaMs || 0) + ms
-          this.resultados.sumaPb = (this.resultados.sumaPb || 0) + ((ms * parseFloat(ali.pb)))
+          this.resultados.sumaPb = (this.resultados.sumaPb || 0) + ((ms * parseFloat(ali.pb))*1000)
           this.resultados.sumaEm = (this.resultados.sumaEm || 0) + (ms * parseFloat(ali.em))
           this.resultados.sumaCa = (this.resultados.sumaCa || 0) + (ms * parseFloat(ali.calcio))
           this.resultados.sumaP = (this.resultados.sumaP || 0) + (ms * parseFloat(ali.fosforo))
@@ -326,9 +315,6 @@ export default {
       this.resultados.emAjustado = this.round2(this.resultados.emTotal - this.resultados.emMov + this.resultados.emRec)
       this.resultados.ca = this.round2(((0.623*this.resultados.sumaMs)+0.228)/0.45 + (1.4*this.form.ltDiarios)/0.45)
       this.resultados.p = this.round2(((0.881+(0.88*this.resultados.sumaMs))/0.65)+(1*this.form.ltDiarios)/0.65)
-      this.resultados.lipidos = this.round2(6)
-      this.resultados.fdnTotal = this.round2(40)
-      this.resultados.fdnEfectiva = this.round2(25)
       this.resultados.utgPB = this.round2(
         (((-155.62 - (8.6668 * this.form.penc) + (2.6495 * this.form.dGestacion) + (0.0041667 * this.form.nc) -
         (0.011049 * this.form.dGestacion * this.form.dGestacion)) +
@@ -344,6 +330,13 @@ export default {
         (0.011735 * this.form.penc * this.form.dGestacion * this.form.nc)) * 0.239) + emMantAjust
       )
       this.resultados.ctmsPv = this.round2((this.resultados.sumaMs / this.form.pVivo) * 100)
+      this.resultados.sumaMtc = this.round2(this.resultados.sumaMtc)
+      this.resultados.sumaMs = this.round2(this.resultados.sumaMs)
+      this.resultados.sumaPb = this.round2(this.resultados.sumaPb)
+      this.resultados.sumaEm = this.round2(this.resultados.sumaEm)
+      this.resultados.sumaCa = this.round2(this.resultados.sumaCa)
+      this.resultados.sumaP = this.round2(this.resultados.sumaP)
+      this.resultados.sumaCosto = this.round2(this.resultados.sumaCosto)
       this.resultados.sumaFdn = this.round2(this.resultados.sumaFdn/ this.resultados.sumaMs * 100)
       this.resultados.balancePb = this.round2(this.resultados.sumaPb - this.resultados.totalPB)
       this.resultados.balanceEm = this.round2(this.resultados.sumaEm - this.resultados.emAjustado)

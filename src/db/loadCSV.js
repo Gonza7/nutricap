@@ -3,7 +3,7 @@ import Papa from 'papaparse'
 
 export const loadCSVToDB = async () => {
   try {
-    const response = await fetch('/alimentos.csv')
+    const response = await fetch('/alimentos_mod.csv')
     const csvText = await response.text()
 
     const results = Papa.parse(csvText, {

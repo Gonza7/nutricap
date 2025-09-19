@@ -37,3 +37,19 @@ export const deleteAlimento = async (id) => {
   const db = await initDB()
   return db.delete(STORE_NAME, id)
 }
+
+export const resetDB = async () => {
+  return new Promise((resolve, reject) => {
+    const request = indexedDB.deleteDatabase("AlimentosDB")
+
+    request.onsuccess = () => {
+      console.log("Base de datos eliminada con éxito")
+      resolve()
+    }
+
+    request.onerror = (event) => {
+      console.error("Error eliminando la base de datos", event)
+      reject(event)
+    }
+  })
+}
