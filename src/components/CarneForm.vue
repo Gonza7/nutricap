@@ -305,11 +305,11 @@ export default {
           const mtc = parseFloat(item.mtc)
           console.log(mtc)
           console.log (ali.ms,ali.pb,ali.em,ali.calcio,ali.fosforo,ali.fdn,ali.precio)
-          const ms = mtc * parseFloat(ali.ms)
+          const ms = (mtc * parseFloat(ali.ms)/100)
           console.log (ms)
           this.resultados.sumaMtc = (this.resultados.sumaMtc || 0) + mtc
           this.resultados.sumaMs = (this.resultados.sumaMs || 0) + ms
-          this.resultados.sumaPb = (this.resultados.sumaPb || 0) + ((ms * parseFloat(ali.pb))*1000)
+          this.resultados.sumaPb = (this.resultados.sumaPb || 0) + ((ms * parseFloat(ali.pb)))
           this.resultados.sumaEm = (this.resultados.sumaEm || 0) + (ms * parseFloat(ali.em))
           this.resultados.sumaCa = (this.resultados.sumaCa || 0) + (ms * parseFloat(ali.calcio))
           this.resultados.sumaP = (this.resultados.sumaP || 0) + (ms * parseFloat(ali.fosforo))
