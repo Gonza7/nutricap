@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "Material Design Icons";
+  src: url("/fonts/mdi/materialdesignicons-webfont.woff2") format("woff2"),
+       url("/fonts/mdi/materialdesignicons-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Opcional: si querés mantener la importación original de @mdi/font,
+   reemplazala por esta línea en tu main/vuetify:
+   import '@/styles/materialdesignicons-local.css'
+*/

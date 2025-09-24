@@ -16,13 +16,13 @@ import colors from 'vuetify/util/colors'
 // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
 export default createVuetify({
   theme: {
-    defaultTheme: 'dark',
+    defaultTheme: 'light',
     themes: {
       light: {
         dark: false,
         colors: {
           background: '#F9FAFB',   // gris muy claro
-          surface: '#FFFFFF',
+          surface: '#DDDDDD',
           primary: '#2E7D32',      // verde fuerte (énfasis)
           secondary: '#455A64',    // gris azulado
           accent: '#66BB6A',       // verde suave para resaltar
@@ -53,5 +53,8 @@ export default createVuetify({
   locale: {
     locale: 'es',
     messages: { es }
-  }
+  },
+  icons: {
+    defaultSet: 'mdi', // 👈 usamos los íconos locales
+  },
 })

@@ -1,18 +1,19 @@
 <template>
-  <v-app-bar
-    app
-    dark
-    color="primary"
-    flat
-  >
+  <v-app-bar app flat>
     <!-- Botón menú (solo en mobile) -->
     <v-app-bar-nav-icon
       class="d-sm-none"
       @click="drawer = !drawer"
     ></v-app-bar-nav-icon>
 
-    <!-- Título -->
-    <v-toolbar-title >Nutricap</v-toolbar-title>
+    <!-- Logo -->
+    <v-toolbar-title class="d-flex align-center">
+      <img
+        src="@/assets/logo.png"
+        alt="Nutricap Logo"
+        height="70"
+      />
+    </v-toolbar-title>
 
     <v-spacer></v-spacer>
 
@@ -28,18 +29,16 @@
       </v-btn>
     </div>
 
-    <!-- Ícono de perfil -->
-    <v-btn icon>
-      <v-icon>mdi-account-circle</v-icon>
+    <!-- Botón cambio de tema -->
+    <v-btn icon @click="toggleTheme">
+      <v-icon>
+        {{ theme.global.current.value.dark ? 'mdi-weather-sunny' : 'mdi-weather-night' }}
+      </v-icon>
     </v-btn>
   </v-app-bar>
 
   <!-- Drawer lateral (solo en mobile) -->
-  <v-navigation-drawer
-    v-model="drawer"
-    temporary
-    app
-  >
+  <v-navigation-drawer v-model="drawer" temporary app>
     <v-list>
       <v-list-item
         v-for="(item, i) in items"
@@ -53,14 +52,22 @@
 </template>
 
 <script setup>
-import { ref } from "vue"
+import { ref } from 'vue'
+import { useTheme } from 'vuetify'
 
 const drawer = ref(false)
+const theme = useTheme()
+
+// Función para alternar entre claro/oscuro
+const toggleTheme = () => {
+  theme.global.name.value =
+    theme.global.current.value.dark ? 'light' : 'dark'
+}
 
 const items = [
-  { title: "Inicio", to: "/" },
-  { title: "Alimentos", to: "/alimentos" },
-  { title: "Carne", to: "/carne" },
-  { title: "Tambo", to: "/tambo" },
+  { title: 'Inicio', to: '/' },
+  { title: 'Alimentos', to: '/alimentos' },
+  { title: 'Carne', to: '/carne' },
+  { title: 'Tambo', to: '/tambo' },
 ]
 </script>
