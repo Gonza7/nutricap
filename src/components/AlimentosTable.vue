@@ -9,15 +9,8 @@
       </v-col>
     </v-row>
 
-    <v-data-table
-      :items="filteredAlimentos"
-      :headers="headers"
-      class="elevation-1"
-      dense
-      fixed-header
-      height="600"
-      style="width: 100%;"
-    >
+    <v-data-table :items="filteredAlimentos" :headers="headers" class="elevation-1" dense fixed-header height="600"
+      style="width: 100%;">
       <template #top>
         <v-row class="ma-2 mb-0" align="center" justify="space-between">
           <v-col cols="12" sm="6" class="pb-0">
@@ -31,11 +24,13 @@
 
       <template #item.actions="{ item }">
         <v-btn icon elevation="0" @click="openDialog(item)">
-          <v-icon>mdi-pencil</v-icon>
+          <img src="@/assets/icons/pencil.svg" alt="Editar" width="20" height="20" />
         </v-btn>
+
         <v-btn icon elevation="0" @click="deleteAlimento(item.id)">
-          <v-icon>mdi-delete</v-icon>
+          <img src="@/assets/icons/delete.svg" alt="Eliminar" width="20" height="20" />
         </v-btn>
+
       </template>
     </v-data-table>
 
@@ -50,12 +45,8 @@
           <v-form ref="alimentoForm" v-model="formValid" @submit.prevent="submitForm">
             <v-row dense>
               <v-col cols="12" sm="6" v-for="header in formHeader" :key="header.value">
-                <v-text-field
-                  v-model="editedItem[header.value]"
-                  :label="header.text"
-                  :rules="header.value !== 'precio' ? [requiredRule] : []"
-                  :required="header.value !== 'precio'"
-                />
+                <v-text-field v-model="editedItem[header.value]" :label="header.text"
+                  :rules="header.value !== 'precio' ? [requiredRule] : []" :required="header.value !== 'precio'" />
               </v-col>
             </v-row>
 
