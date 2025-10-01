@@ -4,7 +4,8 @@ import { registerPlugins } from '@/plugins'
 import { initDB, getAllAlimentos } from './db/indexedDB'
 import { loadCSVToDB } from './db/loadCSV'
 import { registerSW } from 'virtual:pwa-register'
-import 'material-design-icons-iconfont/dist/material-design-icons.css'
+import '@mdi/font/css/materialdesignicons.css'
+
 
 
 const updateSW = registerSW({

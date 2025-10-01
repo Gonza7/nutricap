@@ -2,7 +2,7 @@
   <v-container fluid>
     <h1 class="text-h5 mb-4">Formulario Cabrito</h1>
 
-    <v-expansion-panels multiple>
+    <v-expansion-panels v-model="panelActivo">
       <v-expansion-panel>
         <v-expansion-panel-title>Formulario de Producción</v-expansion-panel-title>
         <v-expansion-panel-text>
@@ -108,120 +108,104 @@
 
       <!-- 🔹 Resultados -->
       <v-expansion-panel>
-        <v-expansion-panel-title>Resultados</v-expansion-panel-title>
+        <v-expansion-panel-title>
+          Resultados
+        </v-expansion-panel-title>
         <v-expansion-panel-text>
 
           <!-- Subcategoría: Requerimientos Nutricionales -->
-          <h3 class="text-subtitle-1 mb-2">Requerimientos</h3>
+          <h3 class="text-h6 mb-2">Requerimientos</h3>
           <v-row>
-            <v-col cols="12" sm="3">
-              <v-text-field label="Total PB (gr)" v-model="resultados.totalPB" disabled />
-            </v-col>
-            <v-col cols="12" sm="3">
-              <v-text-field label="EM total" v-model="resultados.emTotal" disabled />
-            </v-col>
-            <v-col cols="12" sm="3">
-              <v-text-field label="EM total ajustado" v-model="resultados.emAjustado" disabled />
-            </v-col>
-            <v-col cols="12" sm="3">
-              <v-text-field label="EM x mov" v-model="resultados.emMov" disabled />
-            </v-col>
-            <v-col cols="12" sm="3">
-              <v-text-field label="EM x rec" v-model="resultados.emRec" disabled />
-            </v-col>
-            <v-col cols="12" sm="3">
-              <v-text-field label="Ca (g/d)" v-model="resultados.ca" disabled />
-            </v-col>
-            <v-col cols="12" sm="3">
-              <v-text-field label="P (g/d)" v-model="resultados.p" disabled />
-            </v-col>
-            <v-col cols="12" sm="3">
-              <v-text-field label="% Lípidos" v-model="resultados.lipidos" disabled />
-            </v-col>
-            <v-col cols="12" sm="3">
-              <v-text-field label="FDN total %" v-model="resultados.fdnTotal" disabled />
-            </v-col>
-            <v-col cols="12" sm="3">
-              <v-text-field label="FDN efectiva %" v-model="resultados.fdnEfectiva" disabled />
-            </v-col>
-            <v-col cols="12" sm="3">
-              <v-text-field label="UTG PB" v-model="resultados.utgPB" disabled />
-            </v-col>
-            <v-col cols="12" sm="3">
-              <v-text-field label="UTG EM" v-model="resultados.utgEM" disabled />
+            <v-col cols="12" sm="3" v-for="(valor, label) in {
+              'Total PB (gr)': resultados.totalPB,
+              'EM total': resultados.emTotal,
+              'EM total ajustado': resultados.emAjustado,
+              'EM x mov': resultados.emMov,
+              'EM x rec': resultados.emRec,
+              'Ca (g/d)': resultados.ca,
+              'P (g/d)': resultados.p,
+              '% Lípidos': resultados.lipidos,
+              'FDN total %': resultados.fdnTotal,
+              'FDN efectiva %': resultados.fdnEfectiva,
+              'UTG PB': resultados.utgPB,
+              'UTG EM': resultados.utgEM
+            }" :key="label">
+              <v-card outlined elevation="0" class="pa-2 text-center resultado-card"
+                :style="{ borderColor: isDark ? '#fff' : '#000' }">
+                <div>{{ label }}</div>
+                <div>
+                  <strong>{{ mostrarValor(valor) }}</strong>
+                </div>
+              </v-card>
             </v-col>
           </v-row>
 
-          <!-- Subcategoría: Totales de Dieta -->
-          <h3 class="text-subtitle-1 mt-4 mb-2">Aportes de Dieta</h3>
+          <v-divider class="my-4"></v-divider>
+          <!-- Subcategoría: Aportes de Dieta -->
+          <h3 class="text-h6 mb-2">Aportes</h3>
           <v-row>
-            <v-col cols="12" sm="4">
-              <v-text-field label="Suma MTC (kg)" v-model="resultados.sumaMtc" disabled />
-            </v-col>
-            <v-col cols="12" sm="4">
-              <v-text-field label="Suma MS (kg)" v-model="resultados.sumaMs" disabled />
-            </v-col>
-            <v-col cols="12" sm="4">
-              <v-text-field label="Suma PB" v-model="resultados.sumaPb" disabled />
-            </v-col>
-          </v-row>
-          <v-row>
-            <v-col cols="12" sm="4">
-              <v-text-field label="Suma EM" v-model="resultados.sumaEm" disabled />
-            </v-col>
-            <v-col cols="12" sm="4">
-              <v-text-field label="Suma Ca" v-model="resultados.sumaCa" disabled />
-            </v-col>
-            <v-col cols="12" sm="4">
-              <v-text-field label="Suma P" v-model="resultados.sumaP" disabled />
-            </v-col>
-          </v-row>
-          <v-row>
-            <v-col cols="12" sm="4">
-              <v-text-field label="Suma FDN" v-model="resultados.sumaFdn" disabled />
-            </v-col>
-            <v-col cols="12" sm="4">
-              <v-text-field label="Suma EE" v-model="resultados.sumaEe" disabled />
-            </v-col>
-            <v-col cols="12" sm="4">
-              <v-text-field label="Suma Costo" v-model="resultados.sumaCosto" disabled />
+            <v-col cols="12" sm="4" v-for="(valor, label) in {
+              'Suma MTC (kg)': resultados.sumaMtc,
+              'Suma MS (kg)': resultados.sumaMs,
+              'Suma PB': resultados.sumaPb,
+              'Suma EM': resultados.sumaEm,
+              'Suma Ca': resultados.sumaCa,
+              'Suma P': resultados.sumaP,
+              'Suma FDN': resultados.sumaFdn,
+              'Suma EE': resultados.sumaEe,
+              'Suma Costo': resultados.sumaCosto
+            }" :key="label">
+              <v-card outlined elevation="0" class="pa-2 text-center resultado-card"
+                :style="{ borderColor: isDark ? '#fff' : '#000' }">
+                <div>{{ label }}</div>
+                <div>
+                  <strong>{{ mostrarValor(valor) }}</strong>
+                </div>
+              </v-card>
             </v-col>
           </v-row>
 
+          <v-divider class="my-4"></v-divider>
           <!-- Subcategoría: Balances -->
-          <h3 class="text-subtitle-1 mt-4 mb-2">Balances</h3>
+          <h3 class="text-h6 mb-2">Balances</h3>
           <v-row>
-            <v-col cols="12" sm="3">
-              <v-text-field label="Balance PB" v-model="resultados.balancePb" disabled />
-            </v-col>
-            <v-col cols="12" sm="3">
-              <v-text-field label="Balance EM" v-model="resultados.balanceEm" disabled />
-            </v-col>
-            <v-col cols="12" sm="3">
-              <v-text-field label="Balance Ca" v-model="resultados.balanceCa" disabled />
-            </v-col>
-            <v-col cols="12" sm="3">
-              <v-text-field label="Balance P" v-model="resultados.balanceP" disabled />
+            <v-col cols="12" sm="3" v-for="(valor, label) in {
+              'Balance PB': resultados.balancePb,
+              'Balance EM': resultados.balanceEm,
+              'Balance Ca': resultados.balanceCa,
+              'Balance P': resultados.balanceP
+            }" :key="label">
+              <v-card outlined elevation="0" class="pa-2 text-center resultado-card"
+                :style="{ borderColor: isDark ? '#fff' : '#000' }">
+                <div>{{ label }}</div>
+                <div :class="{ 'text-red': valor < 0 }">
+                  <strong>{{ mostrarValor(valor) }}</strong>
+                </div>
+              </v-card>
             </v-col>
           </v-row>
 
+          <v-divider class="my-4"></v-divider>
           <!-- Subcategoría: Otros Indicadores -->
-          <h3 class="text-subtitle-1 mt-4 mb-2">Otros Indicadores</h3>
+          <h3 class="text-h6 mb-2">Otros Indicadores</h3>
           <v-row>
-            <v-col cols="12" sm="4">
-              <v-text-field label="CTMS / PV" v-model="resultados.ctmsPv" disabled />
-            </v-col>
-            <v-col cols="12" sm="4">
-              <v-text-field label="FDN efectiva (FDNe)" v-model="resultados.fdne" disabled />
-            </v-col>
-            <v-col cols="12" sm="4">
-              <v-text-field label="Ca / P" v-model="resultados.caP" disabled />
+            <v-col cols="12" sm="4" v-for="(valor, label) in {
+              'CTMS / PV': resultados.ctmsPv,
+              'FDN efectiva (FDNe)': resultados.fdne,
+              'Ca / P': resultados.caP
+            }" :key="label">
+              <v-card outlined elevation="0" class="pa-2 text-center resultado-card"
+                :style="{ borderColor: isDark ? '#fff' : '#000' }">
+                <div>{{ label }}</div>
+                <div>
+                  <strong>{{ mostrarValor(valor) }}</strong>
+                </div>
+              </v-card>
             </v-col>
           </v-row>
 
         </v-expansion-panel-text>
       </v-expansion-panel>
-
     </v-expansion-panels>
 
     <!-- 🔹 Botón Calcular -->
@@ -231,10 +215,11 @@
 
 <script>
 import { initDB, getAllAlimentos } from '../db/indexedDB'
-
+import { useTheme } from 'vuetify'
 export default {
   data() {
     return {
+      panelActivo: [0],
       form: {
         pVivo: null,
         gButirosa: null,
@@ -285,7 +270,19 @@ export default {
     await initDB()
     this.alimentos = await getAllAlimentos()
   },
+  computed: {
+    isDark() {
+      const theme = useTheme()
+      return theme.global.current.value.dark
+    }
+  },
   methods: {
+    mostrarValor(valor) {
+      if (valor === null || valor === undefined || valor === '' || isNaN(valor)) {
+        return '-'
+      }
+      return valor
+    },
     // 🔹 Función auxiliar para redondear en 2 decimales
     round2(value) {
       return Math.round(value * 100) / 100
@@ -363,7 +360,16 @@ export default {
       this.resultados.balanceP = this.round2(this.resultados.sumaP - this.resultados.p)
       this.resultados.fdne = this.round2(100)
       this.resultados.caP = this.round2(this.resultados.sumaCa / this.resultados.sumaP)
+      this.panelActivo = [1]
     }
   }
 }
 </script>
+<style scoped>
+.resultado-card {
+  border: 1px solid #000;
+  /* borde sólido negro */
+  border-radius: 6px;
+  /* opcional, esquinas redondeadas */
+}
+</style>

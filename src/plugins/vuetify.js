@@ -7,7 +7,7 @@
 // Styles
 import '@mdi/font/css/materialdesignicons.css'
 import 'vuetify/styles'
-
+import { aliases, mdi } from 'vuetify/iconsets/mdi'
 // Composables
 import { createVuetify } from 'vuetify'
 import { es } from 'vuetify/locale'
@@ -55,6 +55,10 @@ export default createVuetify({
     messages: { es }
   },
   icons: {
-    defaultSet: 'mdi', // 👈 usamos los íconos locales
+    defaultSet: 'mdi',
+    aliases,
+    sets: {
+      mdi,
+    },
   },
 })

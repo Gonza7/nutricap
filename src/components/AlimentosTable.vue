@@ -9,8 +9,15 @@
       </v-col>
     </v-row>
 
-    <v-data-table :items="filteredAlimentos" :headers="headers" class="elevation-1" dense fixed-header height="600"
-      style="width: 100%;">
+    <v-data-table
+      :items="filteredAlimentos"
+      :headers="headers"
+      class="elevation-1"
+      dense
+      fixed-header
+      height="600"
+      style="width: 100%;"
+    >
       <template #top>
         <v-row class="ma-2 mb-0" align="center" justify="space-between">
           <v-col cols="12" sm="6" class="pb-0">
@@ -24,13 +31,12 @@
 
       <template #item.actions="{ item }">
         <v-btn icon elevation="0" @click="openDialog(item)">
-          <img src="@/assets/icons/pencil.svg" alt="Editar" width="20" height="20" />
+          <img src="@/assets/icons/pencil.svg" class="icon-pencil" alt="Editar" />
         </v-btn>
 
         <v-btn icon elevation="0" @click="deleteAlimento(item.id)">
-          <img src="@/assets/icons/delete.svg" alt="Eliminar" width="20" height="20" />
+          <img src="@/assets/icons/delete.svg" class="icon-delete" alt="Eliminar" />
         </v-btn>
-
       </template>
     </v-data-table>
 
@@ -41,16 +47,18 @@
         </v-card-title>
 
         <v-card-text>
-          <!-- Usamos @submit.prevent en el form -->
           <v-form ref="alimentoForm" v-model="formValid" @submit.prevent="submitForm">
             <v-row dense>
               <v-col cols="12" sm="6" v-for="header in formHeader" :key="header.value">
-                <v-text-field v-model="editedItem[header.value]" :label="header.text"
-                  :rules="header.value !== 'precio' ? [requiredRule] : []" :required="header.value !== 'precio'" />
+                <v-text-field
+                  v-model="editedItem[header.value]"
+                  :label="header.text"
+                  :rules="header.value !== 'precio' ? [requiredRule] : []"
+                  :required="header.value !== 'precio'"
+                />
               </v-col>
             </v-row>
 
-            <!-- Botones dentro del form para que el submit funcione -->
             <v-card-actions class="px-0">
               <v-spacer />
               <v-btn text color="blue darken-1" @click="closeDialog()">Cancelar</v-btn>
@@ -63,7 +71,9 @@
   </v-container>
 </template>
 
-<script>
+<script setup>
+import { ref, computed, nextTick } from 'vue'
+import { useTheme } from 'vuetify'
 import {
   initDB,
   getAllAlimentos,
@@ -72,142 +82,146 @@ import {
   deleteAlimento as deleteAlimentoDB,
 } from '../db/indexedDB'
 
-export default {
-  data() {
-    return {
-      alimentos: [],
-      dialog: false,
-      editedIndex: -1,
-      editedItem: {},
-      formValid: false,
-      filterGrupo: '',
-      filterNombre: '',
-      headers: [
-        { title: 'Grupo', key: 'grupo' },
-        { title: 'Nombre', key: 'nombre' },
-        { title: 'Forma física', key: 'forma' },
-        { title: 'Momento', key: 'momento' },
-        { title: '% MS', key: 'ms' },
-        { title: 'EM', key: 'em' },
-        { title: '% PB', key: 'pb' },
-        { title: '% FDN', key: 'fdn' },
-        { title: 'Calcio', key: 'calcio' },
-        { title: 'Fósforo', key: 'fosforo' },
-        { title: 'Precio', key: 'precio' },
-        { title: 'Acciones', key: 'actions', sortable: false },
-      ],
-      formHeader: [
-        { text: 'Grupo', value: 'grupo' },
-        { text: 'Nombre', value: 'nombre' },
-        { text: 'Forma física', value: 'forma' },
-        { text: 'Momento', value: 'momento' },
-        { text: '% MS', value: 'ms' },
-        { text: 'EM', value: 'em' },
-        { text: '% PB', value: 'pb' },
-        { text: '% FDN', value: 'fdn' },
-        { text: 'Calcio', value: 'calcio' },
-        { text: 'Fósforo', value: 'fosforo' },
-        { text: 'Precio', value: 'precio' },
-      ],
-    }
-  },
-  computed: {
-    filteredAlimentos() {
-      const fg = this.filterGrupo.toLowerCase()
-      const fn = this.filterNombre.toLowerCase()
-      return this.alimentos.filter(a => {
-        const g = (a.grupo || '').toString().toLowerCase()
-        const n = (a.nombre || '').toString().toLowerCase()
-        return g.includes(fg) && n.includes(fn)
-      })
-    },
-  },
-  async mounted() {
-    await initDB()
-    this.fetchAlimentos()
-  },
-  methods: {
-    // Regla "requerido" que ignora espacios
-    requiredRule(v) {
-      return (v !== null && v !== undefined && String(v).trim().length > 0) || 'Campo obligatorio'
-    },
+const theme = useTheme()
+const alimentos = ref([])
+const filterGrupo = ref('')
+const filterNombre = ref('')
 
-    async fetchAlimentos() {
-      this.alimentos = await getAllAlimentos()
-    },
+const dialog = ref(false)
+const editedIndex = ref(-1)
+const editedItem = ref({})
+const formValid = ref(false)
 
-    openDialog(item) {
-      if (item) {
-        this.editedIndex = this.alimentos.findIndex(a => a.id === item.id)
-        this.editedItem = {
-          grupo: item.grupo || '',
-          nombre: item.nombre || '',
-          forma: item.forma || '',
-          momento: item.momento || '',
-          ms: item.ms || '',
-          em: item.em || '',
-          pb: item.pb || '',
-          fdn: item.fdn || '',
-          calcio: item.calcio || '',
-          fosforo: item.fosforo || '',
-          precio: item.precio || '',
-          id: item.id,
-        }
-      } else {
-        this.editedIndex = -1
-        this.editedItem = {
-          grupo: '',
-          nombre: '',
-          forma: '',
-          momento: '',
-          ms: '',
-          em: '',
-          pb: '',
-          fdn: '',
-          calcio: '',
-          fosforo: '',
-          precio: '',
-          id: Date.now(), // opcional: puedes dejar que IndexedDB autogenere el id
-        }
-      }
-      this.dialog = true
-    },
+const headers = [
+  { title: 'Grupo', key: 'grupo' },
+  { title: 'Nombre', key: 'nombre' },
+  { title: 'Forma física', key: 'forma' },
+  { title: 'Momento', key: 'momento' },
+  { title: '% MS', key: 'ms' },
+  { title: 'EM', key: 'em' },
+  { title: '% PB', key: 'pb' },
+  { title: '% FDN', key: 'fdn' },
+  { title: 'Calcio', key: 'calcio' },
+  { title: 'Fósforo', key: 'fosforo' },
+  { title: 'Precio', key: 'precio' },
+  { title: 'Acciones', key: 'actions', sortable: false },
+]
 
-    closeDialog() {
-      this.dialog = false
-      // Limpio el formulario y los errores visuales
-      this.$nextTick(() => {
-        this.$refs.alimentoForm?.resetValidation?.()
-      })
-      this.editedItem = {}
-      this.editedIndex = -1
-    },
+const formHeader = [
+  { text: 'Grupo', value: 'grupo' },
+  { text: 'Nombre', value: 'nombre' },
+  { text: 'Forma física', value: 'forma' },
+  { text: 'Momento', value: 'momento' },
+  { text: '% MS', value: 'ms' },
+  { text: 'EM', value: 'em' },
+  { text: '% PB', value: 'pb' },
+  { text: '% FDN', value: 'fdn' },
+  { text: 'Calcio', value: 'calcio' },
+  { text: 'Fósforo', value: 'fosforo' },
+  { text: 'Precio', value: 'precio' },
+]
 
-    async submitForm() {
-      const form = this.$refs.alimentoForm
-      if (!form) return
+const isDark = computed(() => theme.global.current.value.dark)
 
-      // ⚠️ Vuetify 3: validate() -> { valid: boolean } (y puede ser async)
-      const result = await form.validate()
-      const valid = typeof result === 'object' ? result.valid : !!result
-      if (!valid) return // si no es válido, NO guardamos ni cerramos
+const filteredAlimentos = computed(() =>
+  alimentos.value.filter(a => {
+    const g = (a.grupo || '').toLowerCase()
+    const n = (a.nombre || '').toLowerCase()
+    return g.includes(filterGrupo.value.toLowerCase()) && n.includes(filterNombre.value.toLowerCase())
+  })
+)
 
-      const payload = { ...this.editedItem }
-
-      if (this.editedIndex === -1) {
-        await addAlimento(payload)
-      } else {
-        await updateAlimento(payload)
-      }
-
-      await this.fetchAlimentos()
-      this.closeDialog()
-    },
-
-    async deleteAlimento(id) {
-      await deleteAlimentoDB(id)
-      await this.fetchAlimentos()
-    },
-  },
+async function fetchAlimentos() {
+  await initDB()
+  alimentos.value = await getAllAlimentos()
 }
+
+function requiredRule(v) {
+  return (v !== null && v !== undefined && String(v).trim().length > 0) || 'Campo obligatorio'
+}
+
+function openDialog(item) {
+  if (item) {
+    editedIndex.value = alimentos.value.findIndex(a => a.id === item.id)
+    editedItem.value = { ...item }
+  } else {
+    editedIndex.value = -1
+    editedItem.value = {
+      grupo: '',
+      nombre: '',
+      forma: '',
+      momento: '',
+      ms: '',
+      em: '',
+      pb: '',
+      fdn: '',
+      calcio: '',
+      fosforo: '',
+      precio: '',
+      id: Date.now(),
+    }
+  }
+  dialog.value = true
+}
+
+function closeDialog() {
+  dialog.value = false
+  nextTick(() => {
+    document.querySelector('form')?.reset()
+  })
+  editedItem.value = {}
+  editedIndex.value = -1
+}
+
+async function submitForm() {
+  const form = document.querySelector('form')
+  if (!form) return
+
+  if (editedIndex.value === -1) {
+    await addAlimento({ ...editedItem.value })
+  } else {
+    await updateAlimento({ ...editedItem.value })
+  }
+
+  await fetchAlimentos()
+  closeDialog()
+}
+
+async function deleteAlimento(id) {
+  await deleteAlimentoDB(id)
+  await fetchAlimentos()
+}
+
+// inicializar
+fetchAlimentos()
 </script>
+
+<style scoped>
+.icon-pencil {
+  width: 20px;
+  height: 20px;
+  transition: filter 0.2s;
+}
+
+/* Cambia color según tema */
+.icon-pencil {
+  filter: invert(0); /* claro */
+}
+:deep(.v-theme--dark) .icon-pencil {
+  filter: invert(1); /* oscuro */
+}
+
+.icon-delete {
+  width: 20px;
+  height: 20px;
+  transition: filter 0.2s;
+}
+
+/* Cambia color según tema */
+.icon-delete {
+  filter: invert(0); /* claro */
+}
+:deep(.v-theme--dark) .icon-delete {
+  filter: invert(1); /* oscuro */
+}
+</style>
