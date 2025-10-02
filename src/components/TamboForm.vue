@@ -302,19 +302,27 @@ export default {
       const emMant = 0.4 + (0.0289 * this.form.pVivo)
       const emMantAjust = emMant + ((emMant * this.form.actVoluntaria) / 100) + ((emMant * this.form.actReproductiva) / 100)
       const emProd = (1.1192 + (0.0317 * this.form.gButirosa)) * this.form.ltDiarios
+      this.resultados.sumaMtc = 0
+      this.resultados.sumaMs = 0
+      this.resultados.sumaPb = 0
+      this.resultados.sumaEm = 0
+      this.resultados.sumaCa = 0
+      this.resultados.sumaP = 0
+      this.resultados.sumaFdn = 0
+      this.resultados.sumaCosto = 0
 
 
       this.form.alimentos.forEach(item => {
         if (item.alimento && item.mtc) {
           const ali = item.alimento
           const mtc = parseFloat(item.mtc)
-          console.log(mtc)
-          console.log(ali.ms, ali.pb, ali.em, ali.calcio, ali.fosforo, ali.fdn, ali.precio)
-          const ms = mtc * parseFloat(ali.ms) * 1000
-          console.log(ms)
+          const ms = mtc * parseFloat((ali.ms + "").replace(",", "."))
+          console.log("MTC:", mtc, "MS(%):", ali.ms, "MS calculado:", mtc * (ali.ms / 100))
+          console.log("ali.ms (crudo):", ali.ms, "typeof:", typeof ali.ms)
+
           this.resultados.sumaMtc = (this.resultados.sumaMtc || 0) + mtc
           this.resultados.sumaMs = (this.resultados.sumaMs || 0) + ms
-          this.resultados.sumaPb = (this.resultados.sumaPb || 0) + ((ms * parseFloat(ali.pb)) * 1000)
+          this.resultados.sumaPb = (this.resultados.sumaPb || 0) + ((ms * parseFloat(ali.pb)))
           this.resultados.sumaEm = (this.resultados.sumaEm || 0) + (ms * parseFloat(ali.em))
           this.resultados.sumaCa = (this.resultados.sumaCa || 0) + (ms * parseFloat(ali.calcio))
           this.resultados.sumaP = (this.resultados.sumaP || 0) + (ms * parseFloat(ali.fosforo))
