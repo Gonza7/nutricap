@@ -63,7 +63,7 @@ const toggleTheme = () => {
 const items = [
   { title: 'Inicio', to: '/' },
   { title: 'Alimentos', to: '/alimentos' },
-  { title: 'Carne', to: '/carne' },
+  /*{ title: 'Carne', to: '/carne' },*/
   { title: 'Tambo', to: '/tambo' },
 ]
 </script>

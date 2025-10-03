@@ -117,14 +117,14 @@
           <h3 class="text-h6 mb-2">Requerimientos</h3>
           <v-row>
             <v-col cols="12" sm="3" v-for="(valor, label) in {
-              'Total PB (gr)': resultados.totalPB,
-              'EM total': resultados.emTotal,
-              'EM total ajustado': resultados.emAjustado,
-              'EM x mov': resultados.emMov,
-              'EM x rec': resultados.emRec,
-              'Ca (g/d)': resultados.ca,
-              'P (g/d)': resultados.p,
-              '% Lípidos': resultados.lipidos,
+              'PB Total (gr)': resultados.totalPB,
+              'EM Total': resultados.emTotal,
+              'EM Total(ajustado)': resultados.emAjustado,
+              'EM x Movilización': resultados.emMov,
+              'EM x Recuperación': resultados.emRec,
+              'Calcio (g/d)': resultados.ca,
+              'Fósforo (g/d)': resultados.p,
+              'Lípidos %': resultados.lipidos,
               'FDN total %': resultados.fdnTotal,
               'FDN efectiva %': resultados.fdnEfectiva,
               'UTG PB': resultados.utgPB,
@@ -145,15 +145,15 @@
           <h3 class="text-h6 mb-2">Aportes</h3>
           <v-row>
             <v-col cols="12" sm="4" v-for="(valor, label) in {
-              'Suma MTC (kg)': resultados.sumaMtc,
-              'Suma MS (kg)': resultados.sumaMs,
-              'Suma PB': resultados.sumaPb,
-              'Suma EM': resultados.sumaEm,
-              'Suma Ca': resultados.sumaCa,
-              'Suma P': resultados.sumaP,
-              'Suma FDN': resultados.sumaFdn,
-              'Suma EE': resultados.sumaEe,
-              'Suma Costo': resultados.sumaCosto
+              'MTC Total (kg)': resultados.sumaMtc,
+              'MS Total (kg)': resultados.sumaMs,
+              'PB Total': resultados.sumaPb,
+              'EM Total': resultados.sumaEm,
+              'Ca Total': resultados.sumaCa,
+              'P Total': resultados.sumaP,
+              'FDN Total': resultados.sumaFdn,
+              'EE Total': resultados.sumaEe,
+              'Costo Total': resultados.sumaCosto
             }" :key="label">
               <v-card outlined elevation="0" class="pa-2 text-center resultado-card"
                 :style="{ borderColor: isDark ? '#fff' : '#000' }">
@@ -322,7 +322,7 @@ export default {
 
           this.resultados.sumaMtc = (this.resultados.sumaMtc || 0) + mtc
           this.resultados.sumaMs = (this.resultados.sumaMs || 0) + ms
-          this.resultados.sumaPb = (this.resultados.sumaPb || 0) + ((ms * parseFloat(ali.pb)))
+          this.resultados.sumaPb = (this.resultados.sumaPb || 0) + ((ms * parseFloat(ali.pb))*10)
           this.resultados.sumaEm = (this.resultados.sumaEm || 0) + (ms * parseFloat(ali.em))
           this.resultados.sumaCa = (this.resultados.sumaCa || 0) + (ms * parseFloat(ali.calcio))
           this.resultados.sumaP = (this.resultados.sumaP || 0) + (ms * parseFloat(ali.fosforo))
