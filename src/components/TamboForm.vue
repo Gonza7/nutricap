@@ -114,7 +114,7 @@
         <v-expansion-panel-text>
 
           <!-- Subcategoría: Requerimientos Nutricionales -->
-          <h3 class="text-h6 mb-2">Requerimientos</h3>
+          <h3 class="text-h6 mb-2">Requerimientos Lactancia</h3>
           <v-row>
             <v-col cols="12" sm="3" v-for="(valor, label) in {
               'PB Total (gr)': resultados.totalPB,
@@ -124,11 +124,29 @@
               'EM x Recuperación': resultados.emRec,
               'Calcio (g/d)': resultados.ca,
               'Fósforo (g/d)': resultados.p,
-              'Lípidos %': resultados.lipidos,
               'FDN total %': resultados.fdnTotal,
-              'FDN efectiva %': resultados.fdnEfectiva,
+              'CTMS / PV': resultados.ctmsPv,
+              'CTMS / PV (Inicio Lactancia)': resultados.ctmsPvInicio,
+              'CTMS / PV (Mitad Lactancia)': resultados.ctmsPvMitad,
+            }" :key="label">
+              <v-card outlined elevation="0" class="pa-2 text-center resultado-card"
+                :style="{ borderColor: isDark ? '#fff' : '#000' }">
+                <div>{{ label }}</div>
+                <div>
+                  <strong>{{ mostrarValor(valor) }}</strong>
+                </div>
+              </v-card>
+            </v-col>
+          </v-row>
+
+          <v-divider class="my-4"></v-divider>
+          <!-- Subcategoría: Otros Indicadores -->
+          <h3 class="text-h6 mb-2">Requerimientos Último Tercio de Gestación</h3>
+          <v-row>
+            <v-col cols="12" sm="4" v-for="(valor, label) in {
               'UTG PB': resultados.utgPB,
-              'UTG EM': resultados.utgEM
+              'UTG EM': resultados.utgEM,
+              'UTG CTMS / PV': resultados.ctmsPvUTG,
             }" :key="label">
               <v-card outlined elevation="0" class="pa-2 text-center resultado-card"
                 :style="{ borderColor: isDark ? '#fff' : '#000' }">
@@ -152,7 +170,7 @@
               'Ca Total': resultados.sumaCa,
               'P Total': resultados.sumaP,
               'FDN Total': resultados.sumaFdn,
-              'EE Total': resultados.sumaEe,
+              'Ca / P': resultados.caP,
               'Costo Total': resultados.sumaCosto
             }" :key="label">
               <v-card outlined elevation="0" class="pa-2 text-center resultado-card"
@@ -173,31 +191,13 @@
               'Balance PB': resultados.balancePb,
               'Balance EM': resultados.balanceEm,
               'Balance Ca': resultados.balanceCa,
-              'Balance P': resultados.balanceP
+              'Balance P': resultados.balanceP,
+              'Balance FDN': resultados.balanceFdn
             }" :key="label">
               <v-card outlined elevation="0" class="pa-2 text-center resultado-card"
                 :style="{ borderColor: isDark ? '#fff' : '#000' }">
                 <div>{{ label }}</div>
                 <div :class="{ 'text-red': valor < 0 }">
-                  <strong>{{ mostrarValor(valor) }}</strong>
-                </div>
-              </v-card>
-            </v-col>
-          </v-row>
-
-          <v-divider class="my-4"></v-divider>
-          <!-- Subcategoría: Otros Indicadores -->
-          <h3 class="text-h6 mb-2">Otros Indicadores</h3>
-          <v-row>
-            <v-col cols="12" sm="4" v-for="(valor, label) in {
-              'CTMS / PV': resultados.ctmsPv,
-              'FDN efectiva (FDNe)': resultados.fdne,
-              'Ca / P': resultados.caP
-            }" :key="label">
-              <v-card outlined elevation="0" class="pa-2 text-center resultado-card"
-                :style="{ borderColor: isDark ? '#fff' : '#000' }">
-                <div>{{ label }}</div>
-                <div>
                   <strong>{{ mostrarValor(valor) }}</strong>
                 </div>
               </v-card>
@@ -214,6 +214,7 @@
 </template>
 
 <script>
+import { th } from 'vuetify/locale';
 import { initDB, getAllAlimentos } from '../db/indexedDB'
 import { useTheme } from 'vuetify'
 export default {
@@ -260,8 +261,11 @@ export default {
         balanceEm: null,
         balanceCa: null,
         balanceP: null,
-        fdne: null,
-        caP: null
+        caP: null,
+        ctmsPvInicio: null,
+        ctmsPvMitad: null,
+        ctmsPvUTG: null,
+        balanceFdn: null,
       },
       alimentos: [] // lista cargada desde la BD
     }
@@ -366,7 +370,10 @@ export default {
       this.resultados.balanceEm = this.round2(this.resultados.sumaEm - this.resultados.emAjustado)
       this.resultados.balanceCa = this.round2(this.resultados.sumaCa - this.resultados.ca)
       this.resultados.balanceP = this.round2(this.resultados.sumaP - this.resultados.p)
-      this.resultados.fdne = this.round2(100)
+      this.resultados.balanceFdn = this.round2(this.resultados.sumaFdn - this.resultados.fdnTotal)
+      this.resultados.ctmsPvInicio = this.round2((((165+(368.6*this.form.ltDiarios)+(34.8*this.form.pVivo**0.75))/1000)/this.form.pVivo)*100)
+      this.resultados.ctmsPvMitad = this.round2((((533+(305.2*this.form.ltDiarios)+(13.3*this.form.pVivo))/1000)/this.form.pVivo)*100)
+      this.resultados.ctmsPvUTG = this.round2(2+(0.25*this.resultados.nc-1))
       this.resultados.caP = this.round2(this.resultados.sumaCa / this.resultados.sumaP)
       this.panelActivo = [1]
     }
