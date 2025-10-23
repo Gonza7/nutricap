@@ -197,7 +197,7 @@
               <v-card outlined elevation="0" class="pa-2 text-center resultado-card"
                 :style="{ borderColor: isDark ? '#fff' : '#000' }">
                 <div>{{ label }}</div>
-                <div :class="{ 'text-red': valor < 0 }">
+                <div :class="{ 'text-red': valor < 0, 'text-green': valor >= 0 }">
                   <strong>{{ mostrarValor(valor) }}</strong>
                 </div>
               </v-card>
@@ -373,7 +373,7 @@ export default {
       this.resultados.balanceFdn = this.round2(this.resultados.sumaFdn - this.resultados.fdnTotal)
       this.resultados.ctmsPvInicio = this.round2((((165+(368.6*this.form.ltDiarios)+(34.8*this.form.pVivo**0.75))/1000)/this.form.pVivo)*100)
       this.resultados.ctmsPvMitad = this.round2((((533+(305.2*this.form.ltDiarios)+(13.3*this.form.pVivo))/1000)/this.form.pVivo)*100)
-      this.resultados.ctmsPvUTG = this.round2(2+(0.25*this.resultados.nc-1))
+      this.resultados.ctmsPvUTG = this.round2(2+(0.25*this.form.nc-1))
       this.resultados.caP = this.round2(this.resultados.sumaCa / this.resultados.sumaP)
       this.panelActivo = [1]
     }

@@ -1,0 +1,57 @@
+Calculos:
+Carne:
+	-Peso Metabolico = Peso Cabrito ^0,75
+	-Req. PB g/d: - H/< 90 dias = (Peso metabolico*4,75)+(Ganancia diaria peso vivo*420)
+			- M/< 90 dias = (Peso metabolico*4,5)+(Ganancia diaria peso vivo*460)
+			- H/> 90 dias a 18 meses = (Peso metabolico*3,925)+(Ganancia diaria peso vivo*300)
+			- M/> 90 dias a 18 meses= (Peso metabolico*3,925)+(Ganancia diaria peso vivo*340)
+	-Req. EM mcal/d: - H/< 90 dias = (Peso metabolico*0,107)+(Ganancia diaria peso vivo*3,6)
+			- M/< 90 dias = (Peso metabolico*0,125)+(Ganancia diaria peso vivo*3,5)
+			- H/> 90 dias a 18 meses = (Peso metabolico*0,128)+(Ganancia diaria peso vivo*6)
+			- M/> 90 dias a 18 meses= (Peso metabolico*0,149)+(Ganancia diaria peso vivo*5,8)
+	-Req. Calcio g/d = (Peso metabolico*0,13)+(Ganancia diaria peso vivo*3,5)
+	-Req. Fosforo g/d = (Peso Metabolico*0,09)+(Ganancia diaria peso vivo*2,8)
+	-Req. FDN (>90 dias a 18 meses) = Total MS kg * 0,35
+	
+	-Balances: -CTMS/PV (%) = (Suma MS Kg/Peso Cabrito)*100
+		-Balance PB = Suma PB - Req. PB
+		-Balance EM = Suma EM - Req. EM
+		-Balance Calcio = Suma Calcio - Req. Calcio
+		-Balance Fosforo = Suma Fosforo - Req. Fosforo
+		-Balance % FDN = Suma FDN - Req. FDN
+		-Total Aporte EE =  (Suma EE/Suma MS Kg)*100
+Tambo:
+	-PB mant. = 15,667*(1,1315 * Peso vivo)
+	-PB mant. ajustado = ((PB mant * Act. reproductiva)/100) + PB mant
+	-PB produccion = Lts x dia * (36,905+(8,9048*GB))
+	-Req. PB gr = PB mant. ajustado + PB produccion
+	-EM mant. = 0,4+(0,0289*Peso vivo)
+	-EM mant. ajustado = 0,4+(0,0289*Peso vivo)+((0,4+(0,0289*Peso vivo))*Act. voluntaria)/100)+((0,4+(0,0289*Peso vivo))*Act. repoductiva)/100)
+	-EM produccion = (1,1192+(0,0317*GB))*Lts. x dia
+	-EM total = EM mant ajustado + EM produccion
+	-EM x movilizacion = 9,98*PDPV
+	-EM x recuperacion = 10,51*GDPV
+	-EM total ajustado = EM total - EM x movilizacion + EM x recuperacion
+	-Calcio g/d = ((0,623*Suma MS kg)+0,228)/0,45 +(1,4*Lts x dia)/0,45
+	-Fosforo g/d = (0,081+(0,88*Suma MS kg)/0,65)+(1*Lts x dia)/0,65
+	-UTG PB = ((-155,62-(8,6668*PENC)+(2,6495*Dias de gestacion)+(0,0041667*NC)-(0,011049*(Dias de gestacion)²))+(0,097691*PENC*dias de gestacion)-(12,136*PENC*NC)+(0,14631*PENC*Dias de gestacion*NC))/0,65)) + PB mant
+	-UTG EM = ((-15,467 - (1,1439*PENC) + (0,26316*Dias de gestacion) - (0,0021667*NC) - (0,0010963*(Dias de gestacion)²) + (0,011772*PENC*Dias de gestacion) - (0,98352*PENC*NC) + (0,011735*PENC*Dias de gestacion*NC))*0,239)+EM mant. ajustado
+	
+	Balances: -CTMS/PV = (Suma MTC Kg/Peso vivo)*100
+		- Balance PB = Suma PB - Req. PB
+		- Balance EM = Suma EM - Req. EM ajustado
+		- % EM = ((Req. EM ajustado - Req. EM)/Suma EM)*100
+		- Balance Calcio = Suma Calcio + Req. Calcio
+		- Balance fosforo = Suma Fosforo + Req. Fosforo
+		- Ca/P = Suma Calcio / Suma Fosforo
+	
+Alimentos: 
+	-MS Kg = MTC kg * % MS, (MTC kg * % MS)*1,05 si es sustituto lacteo
+	-PB Total = (MS kg * PB)*1000
+	-Mcal EM/Kg MS total = MS kg * Mcal EM/Kg MS
+	-Calcio total = Calcio g/kg * MS kg
+	-Fosforo total = Fosforo g/kg * MS kg
+	-% FDN total (>90 dias a 18 meses) = (% FDN * MS kg)/100
+	-% EE total = (% EE * MS kg)/100
+	-Precio total = Precio/kg * MTC Kg
+			

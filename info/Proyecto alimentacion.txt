@@ -1,0 +1,22 @@
+Tambo: 
+-Campos a llenar: 
+ * PV (Peso vivo)
+ * GB (Grasa butirosa)
+ * Litros de leche diarios
+
+ * Actividad voluntaria (10 a 40 %)
+ * Actividad reproductiva (Hasta 10 %)
+ * Movilizacion: PDPV (Perdida diaria de peso vivo) - GDPV (Ganancia diaria de peso vivo)
+ * Gestacion: PENC (Peso nacimiento cria) - NC (Numero de crias)
+ 
+ * Alimentos: MTC Kg - Precio x Kg
+ * Calculo automatico - Restricciones (A futuro)}: 
+
+Carne:
+- Campos a llenar:
+ * Peso Cabrito
+ * GDPV en Kg (Ganancia diaria de peso vivo)
+ * Sexo
+ * Edad
+ * Alimentos: MTC Kg - Precio x Kg
+ * Calculo automatico - Restricciones (A futuro): 
